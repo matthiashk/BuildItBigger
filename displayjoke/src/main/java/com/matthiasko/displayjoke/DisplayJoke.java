@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 /**
  * Created by matthiasko on 12/31/15.
@@ -18,6 +19,8 @@ public class DisplayJoke extends Activity {
         Intent intent = getIntent();
 
         String joke = intent.getStringExtra("aJoke");
+
+        Toast.makeText(getApplicationContext(), joke, Toast.LENGTH_LONG).show();
 
         System.out.println("joke = " + joke);
 
