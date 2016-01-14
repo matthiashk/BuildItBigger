@@ -7,9 +7,9 @@ import android.os.AsyncTask;
  */
 public class MyAsyncTask extends AsyncTask<Void, Void, String> {
 
-
     @Override
     protected String doInBackground(Void... params) {
+
         String joke = "Why did the chicken cross the road?";
 
         return joke;
@@ -21,5 +21,4 @@ public class MyAsyncTask extends AsyncTask<Void, Void, String> {
 
         System.out.println("result = " + result);
     }
-
 }
