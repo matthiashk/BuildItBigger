@@ -1,6 +1,5 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,11 +8,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
-import com.example.Joker;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
-import com.matthiasko.displayjoke.DisplayJoke;
 
 
 /**
@@ -27,6 +24,11 @@ public class MainActivityFragment extends Fragment {
 
     public MainActivityFragment() {
     }
+
+    public interface AsyncResponse {
+        void processFinish();
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -62,6 +64,24 @@ public class MainActivityFragment extends Fragment {
 
                 spinner.setVisibility(View.VISIBLE);
 
+                MyAsyncTask myAsyncTask = new MyAsyncTask(getContext(), new AsyncResponse() {
+                    @Override
+                    public void processFinish() {
+
+                        System.out.println("PROCESSFINISH");
+
+                        spinner.setVisibility(View.GONE);
+                    }
+                });
+
+
+
+
+                myAsyncTask.execute();
+
+                //spinner.setVisibility(View.GONE);
+
+                /*
                 Joker myJoker = new Joker();
 
                 String joke = myJoker.getJoke();
@@ -71,6 +91,7 @@ public class MainActivityFragment extends Fragment {
                 myIntent.putExtra("aJoke", joke);
 
                 startActivityForResult(myIntent, JOKE_RESULT);
+                */
             }
         });
 
@@ -108,6 +129,7 @@ public class MainActivityFragment extends Fragment {
         mInterstitialAd.loadAd(adRequest);
     }
 
+    /*
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -117,4 +139,7 @@ public class MainActivityFragment extends Fragment {
 
 
     }
+
+    */
+
 }

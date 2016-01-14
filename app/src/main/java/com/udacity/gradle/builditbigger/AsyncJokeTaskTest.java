@@ -13,11 +13,12 @@ public class AsyncJokeTaskTest extends InstrumentationTestCase {
 
     String joke = "";
 
+
     public void testString() throws Throwable{
 
         final CountDownLatch signal = new CountDownLatch(1);
 
-        final MyAsyncTask myAsyncTask = new MyAsyncTask() {
+        final TestAsyncTask testAsyncTask = new TestAsyncTask() {
 
             @Override
             protected void onPostExecute(String result) {
@@ -29,15 +30,18 @@ public class AsyncJokeTaskTest extends InstrumentationTestCase {
             }
         };
 
+
         runTestOnUiThread(new Runnable() {
             public void run() {
 
-                myAsyncTask.execute();
+                testAsyncTask.execute();
             }
         });
 
         signal.await(30, TimeUnit.SECONDS);
 
         assertFalse(TextUtils.isEmpty(joke));
+
+
     }
 }

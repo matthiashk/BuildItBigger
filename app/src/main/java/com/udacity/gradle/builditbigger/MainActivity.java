@@ -16,6 +16,8 @@ import com.matthiasko.displayjoke.DisplayJoke;
 
 public class MainActivity extends ActionBarActivity {
 
+    String joke = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +58,29 @@ public class MainActivity extends ActionBarActivity {
 
     public void launchLibraryActivity(View view){
 
+        // TODO: change to use myasynctask...
+
+
+        TestAsyncTask testAsyncTask = new TestAsyncTask() {
+
+            @Override
+            protected void onPostExecute(String result) {
+                super.onPostExecute(result);
+
+                joke = result;
+
+                Intent myIntent = new Intent(getApplicationContext(), DisplayJoke.class);
+
+                myIntent.putExtra("aJoke", joke);
+
+                startActivity(myIntent);
+                //signal.countDown();
+            }
+        };
+
+        testAsyncTask.execute();
+
+        /*
         Joker myJoker = new Joker();
 
         String joke = myJoker.getJoke();
@@ -66,6 +91,7 @@ public class MainActivity extends ActionBarActivity {
 
 
         startActivity(myIntent);
+        */
     }
 
     public void sendJoke() {
