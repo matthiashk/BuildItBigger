@@ -42,22 +42,28 @@ dependencies {
     compile project(path: ':backend', configuration: 'android-endpoints')
 }
 
+// final step of project, gradle task below
+
 task launchServer {
     doLast {
-        println "Launching server"
+        project(":backend"){
+            appengine{
+                daemon true
+            }
     }
 }
 
-task runTests {
+task lastStepGradleTask {
     dependsOn "launchServer"
     finalizedBy "shutdownServer"
+    // run tests
     doLast {
-        println "Running tests"
+        "app:AsyncJokeTaskTest"
     }
 }
 
 task shutdownServer {
     doLast {
-        println "Shutting down server"
+        ":backend:appengineStop"
     }
-}
+}}

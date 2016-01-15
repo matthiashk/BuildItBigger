@@ -20,7 +20,6 @@ public class MainActivityFragment extends Fragment {
 
     InterstitialAd mInterstitialAd;
     private ProgressBar spinner;
-    public static int JOKE_RESULT = 10;
 
     public MainActivityFragment() {
     }
@@ -51,8 +50,6 @@ public class MainActivityFragment extends Fragment {
 
         */
 
-
-
         mInterstitialAd = new InterstitialAd(getContext());
         mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
 
@@ -60,7 +57,6 @@ public class MainActivityFragment extends Fragment {
             @Override
             public void onAdClosed() {
                 requestNewInterstitial();
-                //beginPlayingGame();
 
                 spinner.setVisibility(View.VISIBLE);
 
@@ -68,30 +64,13 @@ public class MainActivityFragment extends Fragment {
                     @Override
                     public void processFinish() {
 
-                        System.out.println("PROCESSFINISH");
+                        //System.out.println("PROCESSFINISH");
 
                         spinner.setVisibility(View.GONE);
                     }
                 });
 
-
-
-
                 myAsyncTask.execute();
-
-                //spinner.setVisibility(View.GONE);
-
-                /*
-                Joker myJoker = new Joker();
-
-                String joke = myJoker.getJoke();
-
-                Intent myIntent = new Intent(getContext(), DisplayJoke.class);
-
-                myIntent.putExtra("aJoke", joke);
-
-                startActivityForResult(myIntent, JOKE_RESULT);
-                */
             }
         });
 
@@ -102,21 +81,12 @@ public class MainActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                //System.out.println("LOADING INTERSTITIAL");
-
                 if (mInterstitialAd.isLoaded()) {
 
-                    //System.out.println("AD IS LOADED");
                     mInterstitialAd.show();
-                } else {
-                    //System.out.println("AD IS NOT LOADED");
-                    //beginPlayingGame();
                 }
-
             }
         });
-
-
 
         return root;
     }
@@ -128,18 +98,4 @@ public class MainActivityFragment extends Fragment {
 
         mInterstitialAd.loadAd(adRequest);
     }
-
-    /*
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-        spinner.setVisibility(View.GONE);
-
-        super.onActivityResult(requestCode, resultCode, data);
-
-
-    }
-
-    */
-
 }

@@ -22,11 +22,8 @@ public class MyAsyncTask extends AsyncTask<Void, Void, String> {
         delegate = asyncResponse;
     }
 
-
-
     @Override
     protected String doInBackground(Void... params) {
-
 
         /*
         for (int i = 0; i < 5; i++) {
@@ -38,14 +35,9 @@ public class MyAsyncTask extends AsyncTask<Void, Void, String> {
             }
         }*/
 
-
-        //String joke = "Why did the chicken cross the road?";
-
         Joker myJoker = new Joker();
 
         String joke = myJoker.getJoke();
-
-
 
         return joke;
     }
@@ -60,7 +52,7 @@ public class MyAsyncTask extends AsyncTask<Void, Void, String> {
 
         context.startActivity(myIntent);
 
-        System.out.println("MyAsyncTask - result = " + result);
+        //System.out.println("MyAsyncTask - result = " + result);
 
         delegate.processFinish();
     }

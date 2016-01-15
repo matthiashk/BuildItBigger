@@ -13,7 +13,6 @@ public class AsyncJokeTaskTest extends InstrumentationTestCase {
 
     String joke = "";
 
-
     public void testString() throws Throwable{
 
         final CountDownLatch signal = new CountDownLatch(1);
@@ -41,7 +40,6 @@ public class AsyncJokeTaskTest extends InstrumentationTestCase {
         signal.await(30, TimeUnit.SECONDS);
 
         assertFalse(TextUtils.isEmpty(joke));
-
 
     }
 }

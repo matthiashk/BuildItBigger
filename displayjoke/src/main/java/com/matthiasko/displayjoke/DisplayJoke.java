@@ -22,7 +22,7 @@ public class DisplayJoke extends Activity {
 
         Toast.makeText(getApplicationContext(), joke, Toast.LENGTH_LONG).show();
 
-        System.out.println("joke = " + joke);
+        //System.out.println("joke = " + joke);
 
         finish();
     }

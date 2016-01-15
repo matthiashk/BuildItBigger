@@ -58,9 +58,6 @@ public class MainActivity extends ActionBarActivity {
 
     public void launchLibraryActivity(View view){
 
-        // TODO: change to use myasynctask...
-
-
         TestAsyncTask testAsyncTask = new TestAsyncTask() {
 
             @Override
@@ -74,33 +71,13 @@ public class MainActivity extends ActionBarActivity {
                 myIntent.putExtra("aJoke", joke);
 
                 startActivity(myIntent);
-                //signal.countDown();
             }
         };
 
         testAsyncTask.execute();
-
-        /*
-        Joker myJoker = new Joker();
-
-        String joke = myJoker.getJoke();
-
-        Intent myIntent = new Intent(this, DisplayJoke.class);
-
-        myIntent.putExtra("aJoke", joke);
-
-
-        startActivity(myIntent);
-        */
     }
 
     public void sendJoke() {
         //Joker myJoker = new Joker();
-
-
     }
-
-
-
-
 }
