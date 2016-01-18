@@ -18,7 +18,7 @@ public class DisplayJoke extends Activity {
 
         Intent intent = getIntent();
 
-        String joke = intent.getStringExtra("aJoke");
+        String joke = intent.getStringExtra("aJoke"); // get intent extra 'aJoke'
 
         Toast.makeText(getApplicationContext(), joke, Toast.LENGTH_LONG).show();
 

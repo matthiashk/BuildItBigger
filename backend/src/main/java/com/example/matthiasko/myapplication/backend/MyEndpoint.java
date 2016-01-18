@@ -25,8 +25,8 @@ import javax.inject.Named;
 )
 public class MyEndpoint {
 
-    @ApiMethod(name = "sayHi")
-    public MyBean sayHi(@Named("name") String name) {
+    @ApiMethod(name = "loadJoke")
+    public MyBean loadJoke(@Named("name") String name) {
         MyBean response = new MyBean();
 
         Joker myJoker = new Joker();
