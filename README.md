@@ -1,4 +1,4 @@
-#Udacity - Build It Bigger Project
+# Udacity - Build It Bigger Project
 
 Step 1: Create a Java library
 
@@ -10,7 +10,7 @@ Step 4: Add Functional Tests
 
 Step 5: Add a Paid Flavor
 
-#Optional Tasks
+# Optional Tasks
 
 Add Interstitial Ad
 
